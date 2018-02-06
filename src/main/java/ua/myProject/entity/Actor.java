@@ -31,4 +31,59 @@ public class Actor extends BaseEntity{
 	inverseJoinColumns = @JoinColumn(name = "film_details_id"))
 	List<FilmDetails> filmDetailsList = new ArrayList<>();
 
+	public Actor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
+	public String getActorBiography() {
+		return actorBiography;
+	}
+
+	public void setActorBiography(String actorBiography) {
+		this.actorBiography = actorBiography;
+	}
+
+	public List<FilmDetails> getFilmDetailsList() {
+		return filmDetailsList;
+	}
+
+	public void setFilmDetailsList(List<FilmDetails> filmDetailsList) {
+		this.filmDetailsList = filmDetailsList;
+	}
+	
+	
+
 }

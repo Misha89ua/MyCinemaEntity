@@ -28,4 +28,49 @@ public class FilmDetails extends BaseEntity{
 	@OneToOne(mappedBy = "filmDetails")
 	private Film film;
 
+	public FilmDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Produser getProduser() {
+		return produser;
+	}
+
+	public void setProduser(Produser produser) {
+		this.produser = produser;
+	}
+
+	public List<Actor> getActors() {
+		return actors;
+	}
+
+	public void setActors(List<Actor> actors) {
+		this.actors = actors;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
+	public String getFilmDescription() {
+		return filmDescription;
+	}
+
+	public void setFilmDescription(String filmDescription) {
+		this.filmDescription = filmDescription;
+	}
+
+	public Film getFilm() {
+		return film;
+	}
+
+	public void setFilm(Film film) {
+		this.film = film;
+	}
+
 }

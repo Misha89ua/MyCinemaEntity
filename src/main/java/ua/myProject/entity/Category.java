@@ -17,4 +17,35 @@ public class Category extends BaseEntity{
 	@OneToMany(mappedBy = "category")
 	List<Film> films = new ArrayList<>();
 
+	public Category() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public String getCategoryDescription() {
+		return categoryDescription;
+	}
+
+	public void setCategoryDescription(String categoryDescription) {
+		this.categoryDescription = categoryDescription;
+	}
+
+	public List<Film> getFilms() {
+		return films;
+	}
+
+	public void setFilms(List<Film> films) {
+		this.films = films;
+	}
+	
+	
+
 }

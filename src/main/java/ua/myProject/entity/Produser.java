@@ -24,4 +24,50 @@ public class Produser extends BaseEntity{
 	@OneToMany(mappedBy = "produser")
 	List<FilmDetails> filmDetailsList = new ArrayList<>();
 
+	public Produser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
+
+	public String getProdusersBiography() {
+		return produsersBiography;
+	}
+
+	public void setProdusersBiography(String produsersBiography) {
+		this.produsersBiography = produsersBiography;
+	}
+
+	public List<FilmDetails> getFilmDetailsList() {
+		return filmDetailsList;
+	}
+
+	public void setFilmDetailsList(List<FilmDetails> filmDetailsList) {
+		this.filmDetailsList = filmDetailsList;
+	}
+	
+	
 }
