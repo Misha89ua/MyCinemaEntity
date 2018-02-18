@@ -9,7 +9,7 @@ public class Film extends BaseEntity{
 	@Column(name = "film_name")
 	private String filmName;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
@@ -19,7 +19,7 @@ public class Film extends BaseEntity{
 	@Column(name = "movie_length")
 	private int movieLength;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "film_details_id")
 	private FilmDetails filmDetails;
 	
@@ -27,8 +27,13 @@ public class Film extends BaseEntity{
 	private int numbersOfLikes;
 
 	public Film() {
-		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Film(String filmName, int year, int movieLength) {
+		this.filmName = filmName;
+		this.year = year;
+		this.movieLength = movieLength;
+		this.numbersOfLikes = 0;
 	}
 
 	public String getFilmName() {
@@ -78,6 +83,4 @@ public class Film extends BaseEntity{
 	public void setNumbersOfLikes(int numbersOfLikes) {
 		this.numbersOfLikes = numbersOfLikes;
 	}
-	
-		
 }

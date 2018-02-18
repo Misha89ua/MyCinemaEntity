@@ -7,11 +7,11 @@ import javax.persistence.*;
 @Table(name = "seans")
 public class Seans extends BaseEntity{
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name = "film_id")
 	private Film film;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinColumn(name = "hall_id")
 	private Hall hall;
 	
@@ -28,8 +28,14 @@ public class Seans extends BaseEntity{
 	private int seansLength;
 
 	public Seans() {
+	}
+
+	public Seans(Date date, Long ticketPrice, int seansLength) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.date = date;
+		this.ticketPrice = ticketPrice;
+		this.soldTickets = 0;
+		this.seansLength = seansLength;
 	}
 
 	public Film getFilm() {
@@ -79,6 +85,4 @@ public class Seans extends BaseEntity{
 	public void setSeansLength(int seansLength) {
 		this.seansLength = seansLength;
 	}
-	
-		
 }

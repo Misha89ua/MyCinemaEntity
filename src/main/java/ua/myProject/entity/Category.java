@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "category")
+@Table(name = "category" )
 public class Category extends BaseEntity{
 	
 	@Column(name = "category_name")
@@ -14,12 +14,15 @@ public class Category extends BaseEntity{
 	@Column(name = "category_description")
 	private String categoryDescription;
 	
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "category", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	List<Film> films = new ArrayList<>();
 
 	public Category() {
-		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public Category(String categoryName, String categoryDescription) {
+		this.categoryName = categoryName;
+		this.categoryDescription = categoryDescription;
 	}
 
 	public String getCategoryName() {
@@ -45,7 +48,4 @@ public class Category extends BaseEntity{
 	public void setFilms(List<Film> films) {
 		this.films = films;
 	}
-	
-	
-
 }

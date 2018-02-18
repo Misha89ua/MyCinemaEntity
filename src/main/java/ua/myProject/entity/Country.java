@@ -11,18 +11,20 @@ public class Country extends BaseEntity{
 	@Column(name = "country_name")
 	private String countryName;
 	
-	@OneToMany(mappedBy = "country")
+	@OneToMany(mappedBy = "country", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	List<FilmDetails> filmDetailsList = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "country")
+	@OneToMany(mappedBy = "country", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	List<Actor> actors = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "country")
+	@OneToMany(mappedBy = "country", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	List<Produser> produsers = new ArrayList<>();
 
 	public Country() {
-		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Country(String countryName) {
+		this.countryName = countryName;
 	}
 
 	public String getCountryName() {
@@ -55,7 +57,5 @@ public class Country extends BaseEntity{
 
 	public void setProdusers(List<Produser> produsers) {
 		this.produsers = produsers;
-	}
-	
-		
+	}	
 }

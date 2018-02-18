@@ -25,12 +25,14 @@ public class FilmDetails extends BaseEntity{
 	@Column(name = "film_description")
 	private String filmDescription;
 	
-	@OneToOne(mappedBy = "filmDetails")
+	@OneToOne(mappedBy = "filmDetails", cascade = CascadeType.ALL)
 	private Film film;
 
 	public FilmDetails() {
-		super();
-		// TODO Auto-generated constructor stub
+	}
+	
+	public FilmDetails(String filmDescription) {
+		this.filmDescription = filmDescription;
 	}
 
 	public Produser getProduser() {

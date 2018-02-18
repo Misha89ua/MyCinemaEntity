@@ -16,11 +16,16 @@ public class User extends BaseEntity{
 	private String nikname;
 	
 	@Column(name = "user_type")
-	private int userType;            // 1 - admin, 0 - client
+	private boolean userType;            // 1 - admin, 0 - client
 
 	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public User(String login, String password, String nikname, boolean userType) {
+		this.login = login;
+		this.password = password;
+		this.nikname = nikname;
+		this.userType = userType;
 	}
 
 	public String getLogin() {
@@ -47,11 +52,11 @@ public class User extends BaseEntity{
 		this.nikname = nikname;
 	}
 
-	public int getUserType() {
+	public boolean getUserType() {
 		return userType;
 	}
 
-	public void setUserType(int userType) {
+	public void setUserType(boolean userType) {
 		this.userType = userType;
 	}
 
